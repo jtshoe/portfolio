@@ -1,15 +1,81 @@
+:root {
+  --color-accent: oklch(65% 45% 300);  /* purple accent */
+}
+
+html {
+  accent-color: var(--color-accent);
+}
+
+/* Step 3.1 — Typography */
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+/* Step 3.3 — Grid layout */
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+/* Labels become subgrid containers */
+form label {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+
+/* Button spans full row */
+form button {
+  grid-column: 1 / -1;
+}
+
+
 body {
  /* Set line height to 1.5 times the font size
     and use the OS’s UI font as the website font
   */
  font: 100%/1.5 system-ui;
 
- /* Limit content width so lines don't get too long */
-  max-width: 100ch;
+/* Limit content width so lines don't get too long */
+max-width: 100ch;
 
-  /* Center content horizontally */
-  margin-inline: auto;
+/* Center content horizontally */
+margin-inline: auto;
 
-  /* Prevent text from touching viewport edges on small screens */
-  padding-inline: 1em;
+/* Prevent text from touching viewport edges on small screens */
+padding-inline: 1em;
+
+/*style time for nav bars*/
+nav {
+    display: flex;
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid oklch(80% 3% 200); /* cool gray */
+}
+
+nav a {
+  flex: 1;
+  text-decoration: none;   /* remove underline */
+  color: inherit;          /* remove default blue */
+  text-align: center;      /* center text */
+  padding: 0.5em;          /* spacing */
+}
+
+nav a.current {
+  border-bottom: 0.4em solid oklch(80% 3% 200); /* light cool gray */
+  padding-bottom: 0.1em;  /* counter border height */
+}
+
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  padding-bottom: 0.1em;
+  background-color: oklch(from var(--color-accent) 95% 5% h)
+}
+
+
+
+
 }
