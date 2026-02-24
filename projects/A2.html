@@ -1,5 +1,5 @@
-
 <!DOCTYPE HTML>
+
 <html lang="en">
 <head>
 	<title>Vis & Society Assignment 2</title>
@@ -13,102 +13,138 @@
 			Exploratory Data Analysis
 		</h1>
 
+```
+	<p>
+		<strong>Jessica Shoemaker</strong> — <em>jtshoe@mit.edu</em>
+	</p>
+</header>
+<main>
+	<section>
+		<h2>Subtheme: Exploring Corporate Owners & Housing Market Dynamics</h2>
+
+		<h3>Overall Analysis Questions</h3>
+		<ol>
+			<li><strong>Who is doing most of the property flipping in Boston, and how has the composition of flippers changed over time?</strong><br/>
+			<em>Motivation:</em> Prior housing research often highlights the growing role of institutional and corporate investors in housing markets. In the NYTimes article on evictions, large-scale property ownership and professionalized management structures are shown to shape housing instability and displacement pressures. While I cannot directly study evictions with my datasets, I can examine whether flipping activity is increasingly dominated by corporate, institutional, and LLC-based investors rather than individual or small-scale buyers, which serves as a structural indicator of market financialization.</li>
+
+			<li><strong>What do price changes on flipped properties look like, and which types of investors capture the largest gains?</strong><br/>
+			<em>Motivation:</em> The article emphasizes how housing increasingly functions as a financial asset rather than a social good, with displacement often emerging from profit-driven market dynamics. From my own experience living in high-cost housing markets, I have seen rapid price escalation justified through "renovations" and "value-add" improvements. This question examines how large those gains actually are, how they are distributed, and whether profit concentration differs across investor types.</li>
+
+			<li><strong>How do financing strategies (cash vs mortgage purchases) differ across investor types and property categories?</strong><br/>
+			<em>Motivation:</em> Cash purchasing power is often associated with investor advantage, market competition, and displacement pressures. In both public discourse and personal experience, cash buyers are perceived as outcompeting individual homebuyers. This question explores whether corporate and institutional investors structurally rely more on cash transactions and how that behavior differs across property types and time.</li>
+
+			<li><strong>How concentrated is property ownership and transaction activity among investors?</strong><br/>
+			<em>Motivation:</em> The NYTimes article illustrates how housing systems become extractive when power and control concentrate in a small number of actors. This question investigates whether market influence is diffuse or concentrated by examining how many properties buyers and sellers actually own and trade, helping reveal structural concentration in Boston’s housing market.</li>
+		</ol>
+	</section>
+
+	<section>
+		<h2>Discoveries & Insights</h2>
+
+		<figure>
+			<img src="zipcodemap.png" alt="Boston Zip Code Map" />
+			<figcaption>
+			This map visualizes the zip codes and neighborhood mappings from the <em>Boston_neighborhoods_zipcodes</em> dataset. Plotting all zip codes spatially confirmed that the dataset is geographically focused on the Boston area and does not include out-of-region records. While this dataset does not allow direct verification of missing records, the spatial coherence of the points suggests strong geographic validity and appropriate regional coverage for downstream joins and aggregations.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="corp_owner1.png" alt="Corporate ownership trends 1" />
+			<img src="corp_owner2.png" alt="Corporate ownership trends 2" />
+			<img src="corp_owner3.png" alt="Corporate ownership trends 3" />
+			<img src="corp_owner4.png" alt="Corporate ownership trends 4" />
+			<figcaption>
+			These stacked line charts show corporate ownership rates by neighborhood over time from the <em>corp_ownership_and_occupancy_over_time</em> dataset. Although visually dense due to the number of neighborhoods, a consistent upward trend is visible across most neighborhoods. Some neighborhoods, such as South Boston Waterfront, exhibit particularly high variability but still follow an overall increasing pattern, suggesting a citywide structural rise in corporate ownership rather than isolated local effects.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="ownership_occ1.png" alt="Owner occupancy trends 1" />
+			<img src="ownership_occ2.png" alt="Owner occupancy trends 2" />
+			<img src="ownership_occ3.png" alt="Owner occupancy trends 3" />
+			<img src="ownership_occ4.png" alt="Owner occupancy trends 4" />
+			<figcaption>
+			These plots visualize owner-occupancy rates by neighborhood over the same 21-year period. In contrast to corporate ownership, owner-occupancy rates remain largely stable, with only a slight downward trend. The small deltas across neighborhoods suggest slow structural change rather than rapid turnover, indicating that corporate ownership growth is not being offset by increased owner occupancy.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="streetsales.png" alt="Street-level sales coverage" />
+			<figcaption>
+			This visualization checks data completeness in the <em>A2_EDA_Residential</em> dataset by showing transaction coverage across streets. All streets exhibit at least some sales activity over the 23-year period, suggesting strong spatial completeness and reducing concerns about systematic geographic missingness in transaction records.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="proptypesales.png" alt="Property type sales gaps" />
+			<figcaption>
+			This visualization reveals that certain property types have no recorded transactions in particular years. This indicates classification sparsity rather than missing years in the dataset itself. Because property categories are not mutually exclusive (e.g., "high-rise" vs "apartment"), these gaps suggest semantic overlap rather than true market absence, motivating later filtering to stable categories such as APT (apartments) for longitudinal analyses.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="flipsovertime.png" alt="Flips over time" />
+			<figcaption>
+			This visualization shows flipping activity over time by investor category. Flipping volume increases over time, with a growing share attributed to institutional and corporate investor types. This suggests that flipping is increasingly driven by professionalized investment actors rather than individual or small-scale buyers.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="flips2.png" alt="Flips by investor type" />
+			<figcaption>
+			Using a consistent y-axis scale reveals structural differences between investor types. Some categories show gaps (years with no flips), indicating episodic participation, while others show sustained continuous activity, suggesting long-term institutional market presence rather than opportunistic engagement.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="question2_1.png" alt="Price difference distribution" />
+			<figcaption>
+			This histogram shows price differences on flipped properties, colored by investor type. Non-investors dominate in count, but institutional and corporate actors appear in higher-value bins more frequently. This suggests profit concentration rather than volume dominance among larger investors.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="question2_2.png" alt="Price difference post-2016" />
+			<figcaption>
+			Restricting the data to 2016–2022 reveals a strong clustering of flips in lower price-difference bins, with sharper peaks around moderate gains. This reflects post-2016 market tightening, where profit opportunities compress while volume remains high.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="cash_sale.png" alt="Cash sale trends" />
+			<figcaption>
+			This visualization shows cash purchases by property type over time. Cash transactions increase steadily, particularly in investor-dominated categories, indicating rising capital-driven competition and reduced reliance on mortgage financing among professional buyers.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="cash_sale2.png" alt="Cash vs mortgage distribution" />
+			<figcaption>
+			This box-and-whisker plot compares price distributions for cash and mortgage transactions across investor types. Cash purchases show tighter spreads for most investor types, suggesting standardized acquisition strategies, while institutional investors display larger variance, reflecting scale-driven market flexibility.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="pricediff.png" alt="Investor concentration" />
+			<figcaption>
+			This scatter plot shows buyer purchase volume versus price gains, sized by total ownership. The visualization reveals strong concentration: a small number of actors control large property portfolios and capture disproportionately large gains, indicating structural market consolidation rather than dispersed participation.
+			</figcaption>
+		</figure>
+
+	</section>
+
+	<section>
+
+		<h2>Summary</h2>
 		<p>
-			<strong>Your Name</strong> — <em>Your MIT Email Address</em>
+			Rather than treating each visualization as a standalone finding, this project uses each result to generate deeper lines of inquiry: How does investor dominance differ across neighborhoods and property types? Are profit gains driven by scale, financing strategies, or timing advantages? Do corporate actors behave uniformly, or do distinct investor classes exhibit different market logics? How do ownership concentration and transaction volume interact to produce market power? These follow-up questions move the analysis beyond descriptive patterns toward systemic interpretation, enabling richer insight into how financialization, capital access, and institutional participation reshape housing markets over time.
 		</p>
-	</header>
-	<main>
-		<section>
-			<h2>Subtheme: [ENTER SUBTHEME]</h2>
+		<p>
+		This exploratory analysis reveals a housing market increasingly shaped by corporate, institutional, and large-scale investors rather than individual owner-occupants. Corporate ownership rates rise consistently across neighborhoods, while owner-occupancy remains largely static. Flipping activity shows growing institutional dominance, with profit gains increasingly concentrated among large investors. Financing strategies further reinforce structural power imbalances, as cash transactions become more common among professional buyers. Finally, ownership and transaction concentration patterns indicate that market influence is held by a relatively small number of actors. Together, these patterns suggest a financialized housing system where property functions primarily as an investment vehicle, with implications for affordability, stability, and long-term community displacement.
+		</p>
+	</section>
+</main>
+```
 
-			<h3>Overall Analysis Questions</h3>
-			<ol>
-				<li>QUESTION_1</li>
-				<li>QUESTION_2</li>
-				<li>QUESTION_3</li>
-				<li>...</li>
-			</ol>
-		</section>
-
-		<section>
-			<h2>Discoveries & Insights</h2>
-
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-				ENTER IMAGE CAPTION HERE.
-				</figcaption>
-			</figure>
-
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-				ENTER IMAGE CAPTION HERE.
-				</figcaption>
-			</figure>
-
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-				ENTER IMAGE CAPTION HERE.
-				</figcaption>
-			</figure>
-
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-				ENTER IMAGE CAPTION HERE.
-				</figcaption>
-			</figure>
-
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-				ENTER IMAGE CAPTION HERE.
-				</figcaption>
-			</figure>
-
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-				ENTER IMAGE CAPTION HERE.
-				</figcaption>
-			</figure>
-
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-				ENTER IMAGE CAPTION HERE.
-				</figcaption>
-			</figure>
-
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-				ENTER IMAGE CAPTION HERE.
-				</figcaption>
-			</figure>
-
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-				ENTER IMAGE CAPTION HERE.
-				</figcaption>
-			</figure>
-
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-				ENTER IMAGE CAPTION HERE.
-				</figcaption>
-			</figure>
-		</section>
-
-		<section>
-			<h2>Summary</h2>
-
-			<p>WRITE FINAL SUMMARY HERE.</p>
-		</section>
-	</main>
 </body>
 </html>
