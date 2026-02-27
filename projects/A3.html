@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -23,7 +22,7 @@
 			<h2>Reading & Critique</h2>
 
 			<figure>
-				<img src="https://vis-society.github.io/assets/imgs/covid-spiral.png" alt="" />
+				<img src="https://vis-society.github.io/assets/imgs/covid-spiral.png" alt="COVID-19 Spiral Visualization" />
 			</figure>
 
 			<p>
@@ -31,9 +30,12 @@
 			</p>
 
 			<ul>
-				<li>INSIGHT 1</li>
-				<li>INSIGHT 2</li>
-				<li>INSIGHT 3</li>
+				<li>The spiral shows three distinct yearly loops (2020, 2021, 2022), making inter-year comparisons visually immediate.</li>
+				<li>2022 (Omicron wave) is visually dominant, with the outermost ring expanding sharply in January, signaling the largest surge of the pandemic.</li>
+				<li>2020 remains tight in the center, reflecting comparatively lower reported daily cases early in the pandemic.</li>
+				<li>Seasonal structure is visible: peaks tend to occur in winter months, while summer troughs appear more consistently across years.</li>
+				<li>The 7-day average line smooths volatility and emphasizes the overall trend rather than daily reporting noise.</li>
+				<li>Troughs never return to zero after 2020, showing a rising baseline of transmission across years.</li>
 			</ul>
 
 			<p>
@@ -41,17 +43,21 @@
 			</p>
 
 			<p>
-				DESCRIBE YOUR CRITIQUE IN 1-2 PARAGRAPHS.
+				The spiral visualization succeeds in making temporal comparisons across years visually immediate, aligning month markers to support easy month-to-month comparison (e.g., April 2020 vs. April 2021). Red is an effective color choice to represent new COVID-19 cases, intuitively conveying danger and urgency, while the 7-day average smooths daily fluctuations and outliers, allowing large-scale waves and troughs to be more legible. The visualization is well-suited to a broad audience, particularly in a journalistic context like a New York Times opinion piece, where narrative clarity and emotional impact are as important as analytical precision.
+			</p>
+
+			<p>
+				However, the spiral design introduces tradeoffs that limit analytical clarity. The radial layout distorts time perception, making months appear unequal in duration, and the overlapping 7-day average bands reduce visual resolution, forcing approximate rather than precise estimation of case magnitude. While excellent for pattern recognition and storytelling, this visualization sacrifices quantitative precision. Future design improvements could explore hybrid approaches that maintain narrative power while enhancing perceptual accuracy, such as linear timelines with clear scales, directional cues for time, or alternative magnitude encodings. Small multiples could also preserve clarity for inter-year comparisons while minimizing geometric distortion.
 			</p>
 		</section>
 
 		<section>
 			<h2>Visualization Sketches</h2>
 
-      <figure>
-				<img src="IMAGE_FILENAME" alt="" />
+			<figure>
+				<img src="papergraph1.jpeg" alt="Three Yearly Lines Sketch" />
 				<figcaption>
-          BRIEF CAPTION HERE.
+          Sketch 1: Three line chart showing COVID-19 cases by year to preserve temporal comparison.
 				</figcaption>
 			</figure>
 
@@ -60,15 +66,17 @@
 			</p>
 
 			<ul>
-				<li>RATIONALE 1</li>
-				<li>RATIONALE 2</li>
-				<li>RATIONALE 3</li>
+				<li>Preserves temporal comparison strengths of the spiral while eliminating geometric distortion.</li>
+				<li>Enables direct vertical comparison of case counts for the same months across years.</li>
+				<li>Highlights the massive scale of the 2022 Omicron peak relative to 2020 and 2021.</li>
+				<li>Uniform linear X-axis ensures each month has equal visual weight.</li>
+				<li>Low-case periods still cluster together slightly, limiting clarity.</li>
 			</ul>
 
 			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
+				<img src="papergraph2.jpeg" alt="Heatmap of Case Intensity Sketch" />
 				<figcaption>
-          BRIEF CAPTION HERE.
+          Sketch 2: Heatmap of monthly COVID-19 case intensity for each year.
 				</figcaption>
 			</figure>
 
@@ -77,15 +85,17 @@
 			</p>
 
 			<ul>
-				<li>RATIONALE 1</li>
-				<li>RATIONALE 2</li>
-				<li>RATIONALE 3</li>
+				<li>Explores an alternative visual form to avoid overlapping 7-day average bands.</li>
+				<li>Provides “big picture” view of intensity with dark red highlighting the most severe months.</li>
+				<li>Grid layout eliminates visual interference between years.</li>
+				<li>Less effective at showing exact magnitude compared to line charts; loses nuance of rapid surges.</li>
+				<li>Data after September 2022 is visually ambiguous and may be misinterpreted.</li>
 			</ul>
 
 			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
+				<img src="papergraph3.jpeg" alt="Bar Chart by Month Sketch" />
 				<figcaption>
-          BRIEF CAPTION HERE.
+          Sketch 3: Monthly aggregated bar chart showing comparative volume of cases.
 				</figcaption>
 			</figure>
 
@@ -94,9 +104,10 @@
 			</p>
 
 			<ul>
-				<li>RATIONALE 1</li>
-				<li>RATIONALE 2</li>
-				<li>RATIONALE 3</li>
+				<li>Reduces jitter from daily reporting by aggregating cases by month.</li>
+				<li>Highlights long-term trends and emphasizes the scale of the January 2022 Omicron wave.</li>
+				<li>Discrete month buckets remove spiral distortion and improve analytical precision.</li>
+				<li>Monthly aggregation masks exact peak timing and slope of surges, losing fine-grained dynamics.</li>
 			</ul>
 		</section>
 
@@ -104,9 +115,9 @@
 			<h2>Final Visualization Design</h2>
       
 			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
+				<img src="finalgraph.png" alt="Final COVID-19 Three-Line Monthly Aggregated Graph" />
 				<figcaption>
-          BRIEF CAPTION HERE.
+          Final design: Three-line chart showing monthly aggregated COVID-19 cases with red gradient highlighting intensity.
 				</figcaption>
 			</figure>
 
@@ -116,13 +127,11 @@
 			<h2>Final Writeup</h2>
 
 			<p>
-        DESCRIBE YOUR RATIONALE TO JUSTIFY THE DECISIONS FOR YOUR FINAL DESIGN.
-				WHAT ARE YOU TRYING TO CONVEY, AND HOW DOES YOUR DESIGN FACILITATE THIS?
+        For my final visualization, I created a line chart showing COVID-19 cases aggregated by month, with separate lines for 2020, 2021, and 2022. To emphasize severity, I applied a red gradient along each line, with darker red for higher case counts and lighter red for lower counts. This preserves the temporal comparison of my earlier sketches while eliminating the spiral’s distortion and the heatmap’s loss of quantitative clarity. The linear X-axis ensures months are equally represented, and the 7-day average smoothing continues to reduce daily reporting noise. The chart clearly communicates that the Omicron surge in early 2022 far exceeded previous waves, while recurring winter peaks and summer troughs reveal seasonal patterns. By combining quantitative lines with intuitive color intensity, the visualization balances precision and visual impact, allowing the audience to quickly interpret both magnitude and trends.
       </p>
 
 			<p>
-        REFLECT ON HOW YOUR FINAL DESIGN DOES OR DOES NOT ADDRESS YOUR ORIGINAL CRITIQUE.
-				WHAT TENSIONS OR TRADEOFFS DID YOU ENCOUNTER? WHAT DID NOT WORK OUT AS ANTICIPATED?
+        The line mark effectively shows continuous trends, and the red gradient provides an intuitive metaphor for urgency, drawing attention to critical months without obscuring lower-intensity periods. Aggregating by month emphasizes long-term trends but obscures daily peaks and the speed of surges. Compared to my original critique, this final design addresses the spiral’s distortion and the heatmap’s ambiguity, separating each year for clearer magnitude comparison. Some trade-offs remain: very low-case periods appear visually compressed, and extreme peaks dominate visual space, slightly reducing emphasis on smaller peaks. Overall, the design synthesizes lessons from prior sketches—combining precision, interpretability, and narrative emphasis—successfully communicating the scale and seasonality of COVID-19 transmission across three critical years.
       </p>
 		</section>
 	</main>
